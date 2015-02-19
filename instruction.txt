@@ -1,0 +1,5 @@
+- залить сайт локально;
+- развернуть базу данных, в корне файл localhost.sql;
+- src/GitHub/ApiBundle/Controller/MainController.php заполнить переменные $username - login, $password - password 
+пользователя GitHub (не обязательное действие);
+- перейти по ссылке http://доменное_имя/web/app_dev.php/git-hub/.
