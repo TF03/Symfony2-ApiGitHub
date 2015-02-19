@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block title_hed %}Main{% endblock %}
+
+{% block section %}
+    <div class="content-left">
+        <span class="content-main-text">{{ name }}</span>
+        <span class="content-description">Description: {{ description }}</span>
+        <span>watchers: {{ watchers }}</span>
+        <span>forks: {{ forks }}</span>
+        <span>open issues: {{ issues }}</span>
+        {% if homepage %}
+            <span>homepage: {{ homepage }}</span>
+        {% endif %}
+        <span>GitHub repo: {{ watchers }}</span>
+        <span>created at: {{ created }}</span>
+    </div>
+    <div class="content-right">
+        <span class="content-main-text">Contributors:</span>
+
+        {% for item in responseRight %}
+            <span>
+                <a href="/web/app_dev.php/git-hub/user/{{ item.login }}" title="Открыть профиль">{{ item.login }}</a>
+                <a class="button ajax" id="like_{{ item.login }}">{{ item.text_button }}</a>
+            </span>
+        {% else %}
+            <span>Not found</span>
+        {% endfor %}
+    </div>
+{% endblock %}

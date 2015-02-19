@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block title_hed %}User info - {{ name }}{% endblock %}
+
+{% block section %}
+    <div class="block-user-info">
+        <div class="user-info-left">
+            <img src="{{ avatar_url }}">
+            <a class="button ajax" id="like_{{ login }}">{{ textButton }}</a>
+        </div>
+        <div class="user-info-right">
+            <span class="name-user">{{ name }}</span>
+            <span>{{ login }}</span>
+            {% if company %}
+                <span>Company: {{ company }}</span>
+            {% endif %}
+            {% if blog %}
+                    <span>Blog: {{ blog }}</span>
+            {% endif %}
+            <span>Followers: {{ followers }}</span>
+        </div>
+    </div>
+{% endblock %}

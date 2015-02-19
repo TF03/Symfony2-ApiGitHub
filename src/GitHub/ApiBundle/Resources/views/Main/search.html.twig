@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block title_hed %}Search{% endblock %}
+
+{% block section %}
+    <h3>For search term "{{ q }}" found</h3>
+
+    <ul class="search-list">
+        {% for item in search %}
+            <li>
+                <div class="search-item-block">
+                    <a href="{{ path('git_hub_api_project', { 'projectFirst': item.owner.login,  'projectSecond': item.name}) }}"
+                       title="Open project" class="search-item-name">{{ item.name }}</a>
+                    <a href="{{ item.homepage }}" title="Open homepage" target="_blank">{{ item.homepage }}</a>
+                    <a href="{{ path('git_hub_api_user_info', { 'login': item.owner.login }) }}"
+                       title="User info" target="_blank">{{ item.owner.login }}</a>
+                </div>
+                <p>{{ item.description }}</p>
+                <span class="search-item-watchers">watchers: {{ item.watchers }}</span>
+                <span>forks: {{ item.forks }}</span>
+                <div class="search-item-button">
+                    <a class="button ajax" id="like_{{ item.owner.login }}{{ item.name }}">{{ item.text_button }}</a>
+                </div>
+            </li>
+        {% else %}
+            <li>We couldn't find any repositories matching "{{ q }}"</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,7 @@
+github_api:
+    resource: "@GitHubApiBundle/Resources/config/routing.yml"
+    prefix:   /git-hub
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation

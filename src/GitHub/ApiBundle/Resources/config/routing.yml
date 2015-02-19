@@ -1,0 +1,20 @@
+git_hub_api_main:
+    path:     /
+    defaults: { _controller: GitHubApiBundle:Main:index }
+git_hub_api_user_info:
+    path:     /user/{login}
+    defaults: { _controller: GitHubApiBundle:Main:user }
+
+git_hub_api_search:
+    path:     /search
+    defaults: { _controller: GitHubApiBundle:Main:search }
+
+git_hub_api_ajax:
+    path:     /send-like
+    defaults: { _controller: GitHubApiBundle:Main:sendLike }
+    requirements:
+        _method:  GET
+
+git_hub_api_project:
+    path:     /{projectFirst}/{projectSecond}
+    defaults: { _controller: GitHubApiBundle:Main:index, projectFirst: 'yiisoft', projectSecond: 'yii' }
